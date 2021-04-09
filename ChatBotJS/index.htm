@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>BrigsbyBot</title>
+    <meta name="description" content="Simple twitch chat trigger bot template" />
+
+    <!--  FontAwesome version 5.11.2  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+
+    <!--  Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap" rel="stylesheet">
+    <!-- (font-family: 'Open Sans Condensed', sans-serif) -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <!-- (font-family: 'Open Sans', sans-serif) -->
+    <link href="https://fonts.googleapis.com/css?family=Staatliches&display=swap" rel="stylesheet">
+    <!-- (font-family: 'Staatliches', sans-serif) -->
+    <link href="https://fonts.googleapis.com/css?family=Big+Shoulders+Text&display=swap" rel="stylesheet">
+    <!-- (font-family: 'Big Shoulders Text', cursive;) -->
+    <link href="https://fonts.googleapis.com/css?family=Vesper+Libre&display=swap" rel="stylesheet">
+    <!-- (font-family: 'Vesper Libre', serif;) -->
+                                                                                <!-- REMOVE -->
+    <!--  Data -->                                                              <!-- REMOVE -->
+    <script src="Data/CheerBotData.js"></script>                                 <!-- LOCAL -->
+    <script src="Data/HelpBotData.js"></script>                                 <!-- LOCAL -->
+                                                                                <!-- REMOVE -->
+    <!--  TwitchJS online header -->                                            <!-- REMOVE -->
+    <script src="Twitch/twitch.js"></script>                                    <!-- LOCAL -->
+    <script src="Twitch/TwitchController.js"></script>                          <!-- LOCAL -->
+                                                                                <!-- REMOVE -->
+    <!-- Site Parts -->                                                         <!-- REMOVE -->
+    <script src="SiteParts/ArcadiaJS.js"></script>                              <!-- LOCAL -->
+    <script src="SiteParts/KeyTriggerManager.js"></script>                      <!-- LOCAL -->
+    <script src="SiteParts/PostOffice.js"></script>                             <!-- LOCAL -->
+    <script src="SiteParts/ProgressCircle.js"></script>                         <!-- LOCAL -->
+    <script src="SiteParts/SiteMainArea.js"></script>                           <!-- LOCAL -->
+                                                                                <!-- REMOVE -->
+    <script src="Settings.js"></script>
+    <script src="index.js"></script>                                            <!-- LOCAL -->
+    <script src="favicon.js"></script>                                          <!-- LOCAL -->
+</head>
+
+<!-- Style details for the circle progress class -->
+<style>
+    .circle-progress {
+        width: 200px;
+        height: 200px;
+    }
+
+    .circle-progress-value {
+        stroke-width: 6px;
+        stroke: rgb(33, 161, 33);;
+        stroke-dasharray: 7.84 2;
+        transition: stroke .4s;
+    }
+
+    .circle-progress-circle {
+        stroke-width: 2px;
+        stroke: hsl(228, 8%, 10%);
+    }
+
+    .circle-progress-text {
+        font-weight: bold;
+        fill: --color;
+        transform: translateX(.2em);
+        transition: fill .4s;
+    }
+</style>
+
+<body onload="LoadSiteContent()"> </body>
+
+<!-- CODE -->
+
+</html>
