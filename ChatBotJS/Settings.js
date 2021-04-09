@@ -1,12 +1,11 @@
 let SETTINGS = {
     TWITCH_DATA: {
-        CHANNEL: "CHANNEL NAME HERE",
-        USERNAME: "BOT USERNAME HERE",
-        TOKEN: "OAUTH TOKEN HERE"
+        CHANNEL: "",
+        USERNAME: "",
+        TOKEN: ""
     },
     MICROSERVICE_URL: "http://localhost:5000/",
     MODS_LIST: [
-		"MOD NAME HERE",
     ],
     CHEER_BOT_BUY_ITEMS: {
         "magicchords": { name: "MagicChords", type: "VoiceMod", price: 50 },
