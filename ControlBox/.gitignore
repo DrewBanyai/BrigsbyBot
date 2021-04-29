@@ -1,3 +1,4 @@
 /bin
 /obj/Debug
+/obj/Release
 /obj/ControlBox.csproj.nuget.dgspec.json

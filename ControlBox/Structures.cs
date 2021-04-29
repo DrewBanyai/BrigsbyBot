@@ -22,8 +22,13 @@ public class ProgramStorage {
 
     public ProgramStorage() {
         UserData = new Dictionary<string, BalanceEntry>();
+        var userDataFile = "./UserData.json";
 
-        using (StreamReader r = new StreamReader("./UserData.json"))
+        if (!File.Exists(userDataFile))
+            using (StreamWriter w = File.AppendText(userDataFile))
+                w.Write("{}");
+
+        using (StreamReader r = new StreamReader(userDataFile))
         {
             var json = r.ReadToEnd();
             var userDataFromJson = JsonConvert.DeserializeObject<Dictionary<string, BalanceEntry>>(json);
