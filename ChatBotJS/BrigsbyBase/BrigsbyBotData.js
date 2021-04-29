@@ -1,4 +1,21 @@
-let parseCheerBotCommand = async (username, message) => {
+TwitchController.AddTwitchMessageCallback("PRIVMSG", async (message) => {
+    let messageLower = message.message.toLowerCase();
+
+    //  Check for cheer point bot commands. If any response is required, send each message separated by a short timer.
+    let cheerBotResponse = await parseBrigsbyCommand(message.username, messageLower);
+    if (cheerBotResponse.success) {
+        let sendResponse = null;
+        sendResponse = (response) => {
+            TwitchController.SendChatMessage(channel, response.reply[0]);
+            response.reply.shift();
+            if (sendResponse && (response.reply.length !== 0)) { setTimeout(() => sendResponse(response), 500); }
+        }
+        sendResponse(cheerBotResponse);
+    }
+});
+
+
+let parseBrigsbyCommand = async (username, message) => {
     //  Check for a command word at the beginning of the message
     let firstSpace = message.indexOf(" ");
     let commandStr = (firstSpace == -1) ? message : message.substr(0, firstSpace);
@@ -9,13 +26,15 @@ let parseCheerBotCommand = async (username, message) => {
         "!items", "!item_list", "!itemlist", "!items_list", "!itemslist",
         "!price", "!cost",
         "!buy", "!buy_item", "!buyitem",
-        "!add_points", "!addpoints", "!give_points", "!givepoints",
-        "!subtract_points", "!subtractpoints", "!take_points", "!takepoints" ];
+        "!add_points", "!addpoints", "!give_points", "!givepoints", "!give",
+        "!subtract", "!subtract_points", "!subtractpoints", "!take_points", "!takepoints" ];
 
     if (!commandWords.includes(commandStr)) { return { success: false, reason: "Message is not a CheerBot command", reply: [ "Failed to parse CheerBot command." ] }; }
     let commandArgs = message.substr(commandStr.length, message.length - commandStr.length).split(" ");
     if (commandArgs[0] === "") { commandArgs.shift(); }
-    let itemsData = SETTINGS.CHEER_BOT_BUY_ITEMS;
+    let itemsData = SETTINGS.BOT_ITEMS_LIST;
+
+    let giveMultiplier = 1;
 
     switch (commandStr) {
         case "!brigsby":
@@ -38,7 +57,7 @@ let parseCheerBotCommand = async (username, message) => {
             }
 
             let balanceResult = await PostOffice.CheckBalance(balanceUser);
-            if (balanceResult === null) { return { success: false, reply: [ "Failed to return a balance for @" + balanceUser ], }; }
+            if (balanceResult === null) { return { success: true, reply: [ "ERROR: Failed to return a balance for @" + balanceUser ], }; }
             return { success: true, reply: [ "Current balance for @" + balanceUser + ": " + balanceResult.toString(), ], };
 
         case "!items":
@@ -87,14 +106,16 @@ let parseCheerBotCommand = async (username, message) => {
         case "!subtractpoints":
         case "!take_points":
         case "!takepoints":
-            let giveMultiplier = -1;
+        case "!subtract":
+            giveMultiplier = -1;
 
         case "!add_points":
         case "!addpoints": 
         case "!give_points":
         case "!givepoints":
+        case "!give":
             if (!SETTINGS.MODS_LIST.includes(username.toLowerCase()) && (SETTINGS.TWITCH_DATA.CHANNEL.toLowerCase() !== username.toLowerCase())) {
-                return { success: false, reply: [ "Only moderators or the active streamer may use point-altering commands." ] };
+                return { success: true, reply: [ "Only moderators or the active streamer may use point-altering commands." ] };
             }
 
             if (commandArgs.length < 2) {
@@ -117,7 +138,7 @@ let parseCheerBotCommand = async (username, message) => {
             let giveAmount = commandArgs[1];
 
             let giveResult = await PostOffice.GivePoints(giveUser, giveAmount * ((giveMultiplier === undefined) ? 1 : giveMultiplier));
-            if (giveResult === null) { return { success: false, reply: [ "Failed to give points to @" + giveUser ], }; }
+            if (giveResult === null) { return { success: true, reply: [ "ERROR: Failed to give points to @" + giveUser ], }; }
             return { success: true, reply: [ "Current balance for @" + giveUser + ": " + giveResult.toString(), ], };
     }
 }

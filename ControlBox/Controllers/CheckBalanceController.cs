@@ -27,8 +27,6 @@ namespace ControlBox.Controllers
             username = username.ToLower();
             if (!Program.PROGRAM_STORAGE.UserData.ContainsKey(username)) {
                 return Ok(new { success = true, balance = 0, message = "" });
-                //Program.PROGRAM_STORAGE.UserData[username] = new BalanceEntry{ Username = username, Balance = 0 };
-                //Program.PROGRAM_STORAGE.SaveData();
             }
 
             var entry = Program.PROGRAM_STORAGE.UserData[username];

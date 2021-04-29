@@ -235,11 +235,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\Drew\\Desktop\\BrigsbyBot\\ControlBox\\ControlBox.csproj",
+      "projectUniqueName": "C:\\Users\\Drew\\Desktop\\BrigsbyBot\\ControlBox\\ControlBox.csproj",
       "projectName": "ControlBox",
-      "projectPath": "c:\\Users\\Drew\\Desktop\\BrigsbyBot\\ControlBox\\ControlBox.csproj",
+      "projectPath": "C:\\Users\\Drew\\Desktop\\BrigsbyBot\\ControlBox\\ControlBox.csproj",
       "packagesPath": "C:\\Users\\Drew\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\Drew\\Desktop\\BrigsbyBot\\ControlBox\\obj\\",
+      "outputPath": "C:\\Users\\Drew\\Desktop\\BrigsbyBot\\ControlBox\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Drew\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -293,7 +293,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }
