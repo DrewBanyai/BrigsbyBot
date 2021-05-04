@@ -26,7 +26,7 @@ let parseBrigsbyCommand = async (username, message) => {
         "!items", "!item_list", "!itemlist", "!items_list", "!itemslist",
         "!price", "!cost",
         "!buy", "!buy_item", "!buyitem",
-        "!add_points", "!addpoints", "!give_points", "!givepoints", "!give",
+        "!add", "!add_points", "!addpoints", "!give_points", "!givepoints", "!give",
         "!subtract", "!subtract_points", "!subtractpoints", "!take_points", "!takepoints" ];
 
     if (!commandWords.includes(commandStr)) { return { success: false, reason: "Message is not a CheerBot command", reply: [ "Failed to parse CheerBot command." ] }; }
@@ -109,6 +109,7 @@ let parseBrigsbyCommand = async (username, message) => {
         case "!subtract":
             giveMultiplier = -1;
 
+        case "!add": 
         case "!add_points":
         case "!addpoints": 
         case "!give_points":
