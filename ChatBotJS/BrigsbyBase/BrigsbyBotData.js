@@ -42,7 +42,7 @@ let parseBrigsbyCommand = async (username, message) => {
                 "BrigsbyBot is active, and will track all cheers in the channel, giving an equal number of points for use with the bot.",
                 "You can check your balance at any time by typing '!balance' in the chat. Moderators will sometimes gift out points as well.",
                 "You can buy an item by typing '!buy ITEMNAME'. You can check the price of an item by typing '!price ITEMNAME'",
-                "You can check what items are available by typing '!items'. Let @drewthebear know if you have any questions."
+                "You can check what items are available by typing '!items'. Let @" + channel + " know if you have any questions."
             ], };
 
         case "!check_balance":

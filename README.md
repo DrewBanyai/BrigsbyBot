@@ -1,6 +1,6 @@
 # BrigsbyBot
 
-BrigsbyBot is a chat bot Twitch that allows a streamer to create functionality that viewers can use through chat commands in order to control hotkey-enabled functionality on the streamer's personal computer. The project consists of two elements. The **Control Box** runs on the streamer's computer and acts as a microservice which can keep track of a standard currency we'll refer to as **points** and can trigger keyboard press simulations which can be used to set off hotkey-enabled software the streamer is running. The  **ChatBotJS** can be added as a browser source in OBS to help viewers interact with the **Control Box**, listing items and prices in **points**, as well as allowing the streamer or specified users to give out **points** for any reason.
+BrigsbyBot is a chat bot system for Twitch that allows a streamer to create functionality that viewers can use through chat commands in order to control hotkey-enabled functionality on the streamer's personal computer. The project consists of two elements. The **Control Box** runs on the streamer's computer and acts as a microservice which can keep track of a standard currency we'll refer to as **points** and can trigger keyboard press simulations which can be used to set off hotkey-enabled software the streamer is running. The  **ChatBotJS** can be added as a browser source in OBS to help viewers interact with the **Control Box**, listing items and prices in **points**, as well as allowing the streamer or specified users to give out **points** for any reason.
 
 ## Popular uses of BrigsbyBot
 
@@ -11,13 +11,13 @@ BrigsbyBot is a chat bot Twitch that allows a streamer to create functionality t
 ## Try Out BrigsbyBot
 
 - Download and extract the [latest version of BrigsbyBot](https://github.com/DrewBanyai/BrigsbyBot/archive/refs/heads/release.zip) to your computer
-- Add the ChatBotJS/index.htm file to your OBS as a browser source in a scene that you'll be using the bot in. If you have something like an AlertBox scene you drop into every other scene, this would be a perfect place for it
+- Add the ChatBotJS/BrigsbyBot.htm file to your OBS as a browser source in a scene that you'll be using the bot in. If you have something like an AlertBox scene you drop into every other scene, this would be a perfect place for it
 - Open ChatBotJS/Settings.js and edit in your CHANNEL (just your username, not the URL), USERNAME (whichever account you want the bot to use, usually the same as CHANNEL), and TOKEN (an OAuth key you can generate [here](https://twitchapps.com/tmi/))
 - Fill out your MODS_LIST with whoever you want to be able to give out and take points in your channel. Leaving this blank will result in only the channel streamer being able to use !add and !subtract commands to give and take points
 - Run ControlBox/ControlBox.exe
-- You can add in your own custom items but for now, let's test with the VoiceMod trigger items I've included in the example release build. (*NOTE: The example items can be removed fairly easily by deleting VoiceModItems.js and removing the line that references it in ChatBotJS/index.htm before replacing with your own file.*)
+- You can add in your own custom items but for now, let's test with the VoiceMod trigger items I've included in the example release build. (*NOTE: The example items can be removed fairly easily by deleting VoiceModItems.js and removing the line that references it in ChatBotJS/BrigsbyBot.htm before replacing with your own file.*)
 - Open VoiceMod (at least for the base example) and set hotkeys for different voices. The example code assumes that, for example, a voice will be set up on NUMPAD_0 + NUMPAD_1 (pressing both down at once) and other similar key press combinations. Look in VoiceModItems.js for the full list for this example.
-- Once ControlBox.exe is running and OBS is running with the ChatBotJS index file as a browser source, test out some of the following commands:
+- Once ControlBox.exe is running and OBS is running with the ChatBotJS BrigsbyBot.htm file as a browser source, test out some of the following commands:
 
 | Command |  |
 | ------ | ------ |
@@ -31,7 +31,7 @@ BrigsbyBot is a chat bot Twitch that allows a streamer to create functionality t
 
 ## Add your own items to be purchased with points
 
-If you know some JavaScript, it should be trivial to alter VoiceModItems.js to your liking to make a new grouping of items. The JS file is built in such a way that you could make a copy of it, place your new file alongside VoiceModItems.js, reference it in index.htm, and alter the items list, prices, and keypress simulation details to your specific liking.
+If you know some JavaScript, it should be trivial to alter VoiceModItems.js to your liking to make a new grouping of items. The JS file is built in such a way that you could make a copy of it, place your new file alongside VoiceModItems.js, reference it in BrigsbyBot.htm, and alter the items list, prices, and keypress simulation details to your specific liking.
 
 **If you'd rather just put in some simple data** it isn't too difficult. You can open up ChatBotJS/Settings.js and alter the BOT_ITEMS_LIST and KEY_TRIGGER_EVENTS to add what you'd like. Here is an example of an alteration that will create an item called "QuickLoad" which will hit F9 on the streamer's computer (the quick load button in many games):
 
