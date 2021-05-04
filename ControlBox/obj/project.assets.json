@@ -2,6 +2,23 @@
   "version": 3,
   "targets": {
     "net5.0": {
+      "Henooh.DeviceEmulator/1.1.7": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Henooh.DeviceEmulator.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Henooh.DeviceEmulator.dll": {}
+        },
+        "resource": {
+          "lib/net45/fr/Henooh.DeviceEmulator.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net45/kr/Henooh.DeviceEmulator.resources.dll": {
+            "locale": "kr"
+          }
+        }
+      },
       "Microsoft.Extensions.ApiDescription.Server/3.0.0": {
         "type": "package",
         "build": {
@@ -87,6 +104,23 @@
       }
     },
     "net5.0/ubuntu.16.10-x64": {
+      "Henooh.DeviceEmulator/1.1.7": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Henooh.DeviceEmulator.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Henooh.DeviceEmulator.dll": {}
+        },
+        "resource": {
+          "lib/net45/fr/Henooh.DeviceEmulator.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net45/kr/Henooh.DeviceEmulator.resources.dll": {
+            "locale": "kr"
+          }
+        }
+      },
       "Microsoft.Extensions.ApiDescription.Server/3.0.0": {
         "type": "package",
         "build": {
@@ -172,6 +206,23 @@
       }
     },
     "net5.0/win10-x64": {
+      "Henooh.DeviceEmulator/1.1.7": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Henooh.DeviceEmulator.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Henooh.DeviceEmulator.dll": {}
+        },
+        "resource": {
+          "lib/net45/fr/Henooh.DeviceEmulator.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net45/kr/Henooh.DeviceEmulator.resources.dll": {
+            "locale": "kr"
+          }
+        }
+      },
       "Microsoft.Extensions.ApiDescription.Server/3.0.0": {
         "type": "package",
         "build": {
@@ -258,6 +309,22 @@
     }
   },
   "libraries": {
+    "Henooh.DeviceEmulator/1.1.7": {
+      "sha512": "Vk+WJ/zpFcRVxCEjODcCaQrPnyu0Ts17YkA0PdOrgXh2Z4WAKJmAWTmUokDxnYDVeV9L9ZMuV13CaSj47Cgx0w==",
+      "type": "package",
+      "path": "henooh.deviceemulator/1.1.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "henooh.deviceemulator.1.1.7.nupkg.sha512",
+        "henooh.deviceemulator.nuspec",
+        "lib/net45/Henooh.DeviceEmulator.dll",
+        "lib/net45/Henooh.DeviceEmulator.pdb",
+        "lib/net45/Henooh.DeviceEmulator.xml",
+        "lib/net45/fr/Henooh.DeviceEmulator.resources.dll",
+        "lib/net45/kr/Henooh.DeviceEmulator.resources.dll"
+      ]
+    },
     "Microsoft.Extensions.ApiDescription.Server/3.0.0": {
       "sha512": "LH4OE/76F6sOCslif7+Xh3fS/wUUrE5ryeXAMcoCnuwOQGT5Smw0p57IgDh/pHgHaGz/e+AmEQb7pRgb++wt0w==",
       "type": "package",
@@ -395,6 +462,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "Henooh.DeviceEmulator >= 1.1.7",
       "Newtonsoft.Json >= 13.0.1",
       "Swashbuckle.AspNetCore >= 5.6.3"
     ]
@@ -436,6 +504,10 @@
       "net5.0": {
         "targetAlias": "net5.0",
         "dependencies": {
+          "Henooh.DeviceEmulator": {
+            "target": "Package",
+            "version": "[1.1.7, )"
+          },
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[13.0.1, )"
@@ -500,5 +572,17 @@
         "#import": []
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Henooh.DeviceEmulator 1.1.7' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Henooh.DeviceEmulator",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    }
+  ]
 }

@@ -11,6 +11,90 @@ namespace ControlBox
         public const int VK_RCONTROL = 0xA3; //Right Control key code
         const int VK_F8 = 0x77;
 
+        static public Dictionary<string, Henooh.DeviceEmulator.Native.VirtualKeyCode> HenoohKeyDictionary = new Dictionary<string, Henooh.DeviceEmulator.Native.VirtualKeyCode> {
+            { "TAB", Henooh.DeviceEmulator.Native.VirtualKeyCode.TAB },
+            { "RETURN", Henooh.DeviceEmulator.Native.VirtualKeyCode.RETURN },
+            { "ESCAPE", Henooh.DeviceEmulator.Native.VirtualKeyCode.ESCAPE },
+            { "SPACE", Henooh.DeviceEmulator.Native.VirtualKeyCode.SPACE },
+            { "END", Henooh.DeviceEmulator.Native.VirtualKeyCode.END },
+            { "HOME", Henooh.DeviceEmulator.Native.VirtualKeyCode.HOME },
+            { "LEFT", Henooh.DeviceEmulator.Native.VirtualKeyCode.LEFT },
+            { "UP", Henooh.DeviceEmulator.Native.VirtualKeyCode.UP },
+            { "RIGHT", Henooh.DeviceEmulator.Native.VirtualKeyCode.RIGHT },
+            { "DOWN", Henooh.DeviceEmulator.Native.VirtualKeyCode.DOWN },
+            { "INSERT", Henooh.DeviceEmulator.Native.VirtualKeyCode.INSERT },
+            { "DELETE", Henooh.DeviceEmulator.Native.VirtualKeyCode.DELETE },
+            { "0", Henooh.DeviceEmulator.Native.VirtualKeyCode.VK_0 },
+            { "1", Henooh.DeviceEmulator.Native.VirtualKeyCode.VK_1 },
+            { "2", Henooh.DeviceEmulator.Native.VirtualKeyCode.VK_2 },
+            { "3", Henooh.DeviceEmulator.Native.VirtualKeyCode.VK_3 },
+            { "4", Henooh.DeviceEmulator.Native.VirtualKeyCode.VK_4 },
+            { "5", Henooh.DeviceEmulator.Native.VirtualKeyCode.VK_5 },
+            { "6", Henooh.DeviceEmulator.Native.VirtualKeyCode.VK_6 },
+            { "7", Henooh.DeviceEmulator.Native.VirtualKeyCode.VK_7 },
+            { "8", Henooh.DeviceEmulator.Native.VirtualKeyCode.VK_8 },
+            { "9", Henooh.DeviceEmulator.Native.VirtualKeyCode.VK_9 },
+            { "A", Henooh.DeviceEmulator.Native.VirtualKeyCode.VK_A },
+            { "B", Henooh.DeviceEmulator.Native.VirtualKeyCode.VK_B },
+            { "C", Henooh.DeviceEmulator.Native.VirtualKeyCode.VK_C },
+            { "D", Henooh.DeviceEmulator.Native.VirtualKeyCode.VK_D },
+            { "E", Henooh.DeviceEmulator.Native.VirtualKeyCode.VK_E },
+            { "F", Henooh.DeviceEmulator.Native.VirtualKeyCode.VK_F },
+            { "G", Henooh.DeviceEmulator.Native.VirtualKeyCode.VK_G },
+            { "H", Henooh.DeviceEmulator.Native.VirtualKeyCode.VK_H },
+            { "I", Henooh.DeviceEmulator.Native.VirtualKeyCode.VK_I },
+            { "J", Henooh.DeviceEmulator.Native.VirtualKeyCode.VK_J },
+            { "K", Henooh.DeviceEmulator.Native.VirtualKeyCode.VK_K },
+            { "L", Henooh.DeviceEmulator.Native.VirtualKeyCode.VK_L },
+            { "M", Henooh.DeviceEmulator.Native.VirtualKeyCode.VK_M },
+            { "N", Henooh.DeviceEmulator.Native.VirtualKeyCode.VK_N },
+            { "O", Henooh.DeviceEmulator.Native.VirtualKeyCode.VK_O },
+            { "P", Henooh.DeviceEmulator.Native.VirtualKeyCode.VK_P },
+            { "Q", Henooh.DeviceEmulator.Native.VirtualKeyCode.VK_Q },
+            { "R", Henooh.DeviceEmulator.Native.VirtualKeyCode.VK_R },
+            { "S", Henooh.DeviceEmulator.Native.VirtualKeyCode.VK_S },
+            { "T", Henooh.DeviceEmulator.Native.VirtualKeyCode.VK_T },
+            { "U", Henooh.DeviceEmulator.Native.VirtualKeyCode.VK_U },
+            { "V", Henooh.DeviceEmulator.Native.VirtualKeyCode.VK_V },
+            { "W", Henooh.DeviceEmulator.Native.VirtualKeyCode.VK_W },
+            { "X", Henooh.DeviceEmulator.Native.VirtualKeyCode.VK_X },
+            { "Y", Henooh.DeviceEmulator.Native.VirtualKeyCode.VK_Y },
+            { "Z", Henooh.DeviceEmulator.Native.VirtualKeyCode.VK_Z },
+            { "LEFT WINDOWS", Henooh.DeviceEmulator.Native.VirtualKeyCode.LWIN },
+            { "RIGHT WINDOWS", Henooh.DeviceEmulator.Native.VirtualKeyCode.RWIN },
+            { "NUMPAD 0", Henooh.DeviceEmulator.Native.VirtualKeyCode.NUMPAD0 },
+            { "NUMPAD 1", Henooh.DeviceEmulator.Native.VirtualKeyCode.NUMPAD1 },
+            { "NUMPAD 2", Henooh.DeviceEmulator.Native.VirtualKeyCode.NUMPAD2 },
+            { "NUMPAD 3", Henooh.DeviceEmulator.Native.VirtualKeyCode.NUMPAD3 },
+            { "NUMPAD 4", Henooh.DeviceEmulator.Native.VirtualKeyCode.NUMPAD4 },
+            { "NUMPAD 5", Henooh.DeviceEmulator.Native.VirtualKeyCode.NUMPAD5 },
+            { "NUMPAD 6", Henooh.DeviceEmulator.Native.VirtualKeyCode.NUMPAD6 },
+            { "NUMPAD 7", Henooh.DeviceEmulator.Native.VirtualKeyCode.NUMPAD7 },
+            { "NUMPAD 8", Henooh.DeviceEmulator.Native.VirtualKeyCode.NUMPAD8 },
+            { "NUMPAD 9", Henooh.DeviceEmulator.Native.VirtualKeyCode.NUMPAD9 },
+            { "MULTIPLY", Henooh.DeviceEmulator.Native.VirtualKeyCode.MULTIPLY },
+            { "ADD", Henooh.DeviceEmulator.Native.VirtualKeyCode.ADD },
+            { "DECIMAL", Henooh.DeviceEmulator.Native.VirtualKeyCode.DECIMAL },
+            { "DIVIDE", Henooh.DeviceEmulator.Native.VirtualKeyCode.DIVIDE },
+            { "F1", Henooh.DeviceEmulator.Native.VirtualKeyCode.F1 },
+            { "F2", Henooh.DeviceEmulator.Native.VirtualKeyCode.F2 },
+            { "F3", Henooh.DeviceEmulator.Native.VirtualKeyCode.F3 },
+            { "F4", Henooh.DeviceEmulator.Native.VirtualKeyCode.F4 },
+            { "F5", Henooh.DeviceEmulator.Native.VirtualKeyCode.F5 },
+            { "F6", Henooh.DeviceEmulator.Native.VirtualKeyCode.F6 },
+            { "F7", Henooh.DeviceEmulator.Native.VirtualKeyCode.F7 },
+            { "F8", Henooh.DeviceEmulator.Native.VirtualKeyCode.F8 },
+            { "F9", Henooh.DeviceEmulator.Native.VirtualKeyCode.F9 },
+            { "F10", Henooh.DeviceEmulator.Native.VirtualKeyCode.F10 },
+            { "F11", Henooh.DeviceEmulator.Native.VirtualKeyCode.F11 },
+            { "F12", Henooh.DeviceEmulator.Native.VirtualKeyCode.F12 },
+            { "NUMLOCK", Henooh.DeviceEmulator.Native.VirtualKeyCode.NUMLOCK },
+            { "LEFT SHIFT", Henooh.DeviceEmulator.Native.VirtualKeyCode.LSHIFT },
+            { "RIGHT SHIFT", Henooh.DeviceEmulator.Native.VirtualKeyCode.RSHIFT },
+            { "LEFT CONTROL", Henooh.DeviceEmulator.Native.VirtualKeyCode.LCONTROL },
+            { "RIGHT CONTROL", Henooh.DeviceEmulator.Native.VirtualKeyCode.RCONTROL },
+        };
+
         static public Dictionary<string, byte> KeyDictionary = new Dictionary<string, byte> {
             { "TAB", 0x09 },
             { "RETURN", 0x0D },
@@ -103,11 +187,16 @@ namespace ControlBox
             for (var i = 0; i < keysSeparated.Length; ++i) {
                 if (!KeyDictionary.ContainsKey(keysSeparated[i])) { Console.WriteLine("ERROR"); return false; }
                 keybd_event(KeyDictionary[keysSeparated[i]], 0, KEYEVENTF_EXTENDEDKEY, 0);
+
+                var keyboardController = new Henooh.DeviceEmulator.KeyboardController();
+                keyboardController.Control(HenoohKeyDictionary[keysSeparated[i]]);
             }
 
             
             for (var i = 0; i < keysSeparated.Length; ++i)
+            {
                 keybd_event(KeyDictionary[keysSeparated[i]], 0, KEYEVENTF_KEYUP, 0);
+            }
             
             return true;
         }
