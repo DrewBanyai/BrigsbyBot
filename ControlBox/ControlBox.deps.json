@@ -33,6 +33,7 @@
     ".NETCoreApp,Version=v5.0": {
       "ControlBox/1.0.0": {
         "dependencies": {
+          "Henooh.DeviceEmulator": "1.1.7",
           "Newtonsoft.Json": "13.0.1",
           "Swashbuckle.AspNetCore": "5.6.3",
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",
@@ -324,6 +325,25 @@
         },
         "compile": {
           "ControlBox.dll": {}
+        }
+      },
+      "Henooh.DeviceEmulator/1.1.7": {
+        "runtime": {
+          "lib/net45/Henooh.DeviceEmulator.dll": {
+            "assemblyVersion": "1.1.7.0",
+            "fileVersion": "1.1.7.0"
+          }
+        },
+        "resources": {
+          "lib/net45/fr/Henooh.DeviceEmulator.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net45/kr/Henooh.DeviceEmulator.resources.dll": {
+            "locale": "kr"
+          }
+        },
+        "compile": {
+          "lib/net45/Henooh.DeviceEmulator.dll": {}
         }
       },
       "Microsoft.Extensions.ApiDescription.Server/3.0.0": {},
@@ -2101,6 +2121,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Henooh.DeviceEmulator/1.1.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Vk+WJ/zpFcRVxCEjODcCaQrPnyu0Ts17YkA0PdOrgXh2Z4WAKJmAWTmUokDxnYDVeV9L9ZMuV13CaSj47Cgx0w==",
+      "path": "henooh.deviceemulator/1.1.7",
+      "hashPath": "henooh.deviceemulator.1.1.7.nupkg.sha512"
     },
     "Microsoft.Extensions.ApiDescription.Server/3.0.0": {
       "type": "package",

@@ -3007,7 +3007,7 @@ let parseBrigsbyCommand = async (username, message) => {
         "!items", "!item_list", "!itemlist", "!items_list", "!itemslist",
         "!price", "!cost",
         "!buy", "!buy_item", "!buyitem",
-        "!add_points", "!addpoints", "!give_points", "!givepoints", "!give",
+        "!add", "!add_points", "!addpoints", "!give_points", "!givepoints", "!give",
         "!subtract", "!subtract_points", "!subtractpoints", "!take_points", "!takepoints" ];
 
     if (!commandWords.includes(commandStr)) { return { success: false, reason: "Message is not a CheerBot command", reply: [ "Failed to parse CheerBot command." ] }; }
@@ -3023,7 +3023,7 @@ let parseBrigsbyCommand = async (username, message) => {
                 "BrigsbyBot is active, and will track all cheers in the channel, giving an equal number of points for use with the bot.",
                 "You can check your balance at any time by typing '!balance' in the chat. Moderators will sometimes gift out points as well.",
                 "You can buy an item by typing '!buy ITEMNAME'. You can check the price of an item by typing '!price ITEMNAME'",
-                "You can check what items are available by typing '!items'. Let @drewthebear know if you have any questions."
+                "You can check what items are available by typing '!items'. Let @" + channel + " know if you have any questions."
             ], };
 
         case "!check_balance":
@@ -3090,6 +3090,7 @@ let parseBrigsbyCommand = async (username, message) => {
         case "!subtract":
             giveMultiplier = -1;
 
+        case "!add": 
         case "!add_points":
         case "!addpoints": 
         case "!give_points":
