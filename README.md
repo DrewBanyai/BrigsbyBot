@@ -10,7 +10,7 @@ BrigsbyBot is a chat bot Twitch that allows a streamer to create functionality t
 
 ## Try Out BrigsbyBot
 
-- Download and extract the [latest version of BrigsbyBot](https://github.com/DrewBanyai/BrigsbyBot/archive/refs/heads/main.zip) to your computer
+- Download and extract the [latest version of BrigsbyBot](https://github.com/DrewBanyai/BrigsbyBot/archive/refs/heads/release.zip) to your computer
 - Add the ChatBotJS/index.htm file to your OBS as a browser source in a scene that you'll be using the bot in. If you have something like an AlertBox scene you drop into every other scene, this would be a perfect place for it
 - Open ChatBotJS/Settings.js and edit in your CHANNEL (just your username, not the URL), USERNAME (whichever account you want the bot to use, usually the same as CHANNEL), and TOKEN (an OAuth key you can generate [here](https://twitchapps.com/tmi/))
 - Fill out your MODS_LIST with whoever you want to be able to give out and take points in your channel. Leaving this blank will result in only the channel streamer being able to use !add and !subtract commands to give and take points
