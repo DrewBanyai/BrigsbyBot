@@ -186,16 +186,22 @@ namespace ControlBox
             string[] keysSeparated = keyIDs[0].Split(",");
             for (var i = 0; i < keysSeparated.Length; ++i) {
                 if (!KeyDictionary.ContainsKey(keysSeparated[i])) { Console.WriteLine("ERROR"); return false; }
+                Console.WriteLine("Simulating key: " + keysSeparated[i]);
                 keybd_event(KeyDictionary[keysSeparated[i]], 0, KEYEVENTF_EXTENDEDKEY, 0);
-
-                var keyboardController = new Henooh.DeviceEmulator.KeyboardController();
-                keyboardController.Control(HenoohKeyDictionary[keysSeparated[i]]);
             }
 
             
             for (var i = 0; i < keysSeparated.Length; ++i)
             {
+                if (!KeyDictionary.ContainsKey(keysSeparated[i])) { Console.WriteLine("ERROR"); return false; }
                 keybd_event(KeyDictionary[keysSeparated[i]], 0, KEYEVENTF_KEYUP, 0);
+            }
+
+            
+            for (var i = 0; i < keysSeparated.Length; ++i) {
+                if (!HenoohKeyDictionary.ContainsKey(keysSeparated[i])) { Console.WriteLine("ERROR"); return false; }
+                var keyboardController = new Henooh.DeviceEmulator.KeyboardController();
+                keyboardController.Control(HenoohKeyDictionary[keysSeparated[i]]);
             }
             
             return true;
