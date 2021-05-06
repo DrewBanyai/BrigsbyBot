@@ -7,6 +7,8 @@ let SETTINGS = {
     MODS_LIST: [
     ],
     MICROSERVICE_URL: "http://localhost:5000/",
-    BOT_ITEMS_LIST: {},
-    KEY_TRIGGER_EVENTS: {}
+    BOT_ITEMS_LIST: {
+    },
+    KEY_TRIGGER_EVENTS: {
+    }
 }
