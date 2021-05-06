@@ -12,6 +12,12 @@ if (!channel) { console.error("No channel variable found in settings or URL vari
 
 
 let LoadSiteContent = async () => {
+	//  Load in the mods list as all lower-case to avoid issues with string comparisons later
+	if (SETTINGS && SETTINGS.MODS_LIST)
+		for (let i = 0; i < SETTINGS.MODS_LIST.length; ++i)
+			SETTINGS.MODS_LIST[i] = SETTINGS.MODS_LIST[i].toLowerCase();
+
+	//  Load the site main page and attempt to auto-log in to twitch
     loadSiteMainArea();
 	attemptAutoLogin();
 };
