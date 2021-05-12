@@ -12,12 +12,42 @@ BrigsbyBot is a chat bot Twitch that allows a streamer to create functionality t
 
 - Download and extract the [latest version of BrigsbyBot](https://github.com/DrewBanyai/BrigsbyBot/archive/refs/heads/release.zip) to your computer
 - Add the ChatBotJS/index.htm file to your OBS as a browser source in a scene that you'll be using the bot in. If you have something like an AlertBox scene you drop into every other scene, this would be a perfect place for it
-- Open ChatBotJS/Settings.js and edit in your CHANNEL (just your username, not the URL), USERNAME (whichever account you want the bot to use, usually the same as CHANNEL), and TOKEN (an OAuth key you can generate [here](https://twitchapps.com/tmi/))
-- Fill out your MODS_LIST with whoever you want to be able to give out and take points in your channel. Leaving this blank will result in only the channel streamer being able to use !add and !subtract commands to give and take points
+- Open ChatBotJS/Settings.js and edit in your *CHANNEL* (just your username, not the URL), *USERNAME* (whichever account you want the bot to use, usually the same as *CHANNEL*), and *TOKEN* (an OAuth key you can generate [here](https://twitchapps.com/tmi/))
+- Fill out your *MODS_LIST* with whoever you want to be able to give out and take points in your channel. Leaving this blank will result in only the channel streamer being able to use !add and !subtract commands to give and take points. Adding mods can be done by adding quoted usernames like so:
+```sh
+    MODS_LIST: [
+        "DrewTheBear",
+        "BrigsbyBot"
+    ],
+```
 - Run ControlBox/ControlBox.exe
-- You can add in your own custom items but for now, let's test with the VoiceMod trigger items I've included in the example release build. (*NOTE: The example items can be removed fairly easily by deleting VoiceModItems.js and removing the line that references it in ChatBotJS/index.htm before replacing with your own file.*)
-- Open VoiceMod (at least for the base example) and set hotkeys for different voices. The example code assumes that, for example, a voice will be set up on NUMPAD_0 + NUMPAD_1 (pressing both down at once) and other similar key press combinations. Look in VoiceModItems.js for the full list for this example.
-- Once ControlBox.exe is running and OBS is running with the ChatBotJS index file as a browser source, test out some of the following commands:
+- You can add in your own custom items by adding entries in *BOT_ITEMS_LIST* and *KEY_TRIGGER_EVENTS* like so:
+```sh
+    BOT_ITEMS_LIST: {
+		"taskmanager": { name: "TaskManager", type: "Keyboard", price: 50 },
+		"startmenu": { name: "StartMenu", type: "Keyboard", price: 50 },
+		"refresh": { name: "Refresh", type: "Keyboard", price: 50 },
+    },
+    KEY_TRIGGER_EVENTS: {
+		"TaskManager": {
+			keys: [ "LEFT CONTROL", "LEFT SHIFT", "ESCAPE" ],
+			delay: 0,
+			message: "Opening the task manager"
+		},
+		"StartMenu": {
+			keys: [ "LEFT WINDOWS" ],
+			delay: 0,
+			message: "Opening the start menu"
+		},
+		"Refresh": {
+			keys: [ "F5" ],
+			delay: 0,
+			message: "Refreshing"
+		}
+    }
+```
+- Note that the name of the entry in *BOT_ITEMS_LIST* should be in all lower-case, but the **name** value can use any capitalization you'd like. Once you've given it a **name**, that same string (with all capitalization) should be used as the name of the entry in *KEY_TRIGGER_EVENTS*. The **keys** value is an array that contains strings that identify keys (the list of which you can find below in this README) and must be comma deliniated if you wish to combine multiple keys. See the **TaskManager** entry for an example of this. The **message** value can be anything, as it will just show in the console of the **ControlBox**.
+- Once ControlBox.exe is running and OBS is running with the ChatBotJS index file as a browser source, test out some of the following commands in chat:
 
 | Command |  |
 | ------ | ------ |
@@ -28,6 +58,19 @@ BrigsbyBot is a chat bot Twitch that allows a streamer to create functionality t
 | !buy | Can be used to spend points on an item, if the user has the points. Usage: *!buy speechifier* |
 | !add | (Note: *Streamer and any specified mods only) Can be used to add **points** to another user. Usage: *!add @DrewTheBear 100* |
 | !subtract | (Note: *Streamer and any specified mods only) Can be used to subtract **points** from another user. This will always have a minimum point balance result of 0. Usage: *!subtract @DrewTheBear 50* |
+
+Using the bot items and key trigger events from this example, you'd want to use this grouping of commands to test.
+```sh
+!brigsby
+!items
+!add @YOUR_NAME 200
+!buy taskmanager
+!buy startmenu
+!buy refresh
+!balance
+```
+
+*NOTE: Obviously, replace YOUR_NAME with your twitch username*
 
 ## Add your own items to be purchased with points
 
@@ -131,4 +174,4 @@ As you can see, the key trigger key must have the same capitalization as the *na
 
 Please feel free to reach out to me at DrewTheBearTwitch@gmail.com or by finding me on [my Twitch Channel](http://twitch.tv/DrewTheBear). I'm happy to answer any questions, or even help you set it up through Discord to do whatever you want it to do. I would love any feedback/suggestions as well, as I'm sure the capability of the ControlBox is only in it's infancy at the moment and could do a lot more than simulate key presses.
 
-Enjoy.
+Enjoy!
