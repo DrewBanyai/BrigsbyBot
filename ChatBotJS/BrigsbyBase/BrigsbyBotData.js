@@ -143,3 +143,8 @@ let parseBrigsbyCommand = async (username, message) => {
             return { success: true, reply: [ "Current balance for @" + giveUser + ": " + giveResult.toString(), ], };
     }
 }
+
+let respondToRewardMessage = async (message) => {
+    let reward = SETTINGS.REWARD_ITEMS_LIST[message.tags.customRewardId];
+    KEY_TRIGGER_MANAGER.AddTriggerToQueue(reward.name);
+}

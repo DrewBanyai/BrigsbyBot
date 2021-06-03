@@ -62,7 +62,12 @@ class TwitchController {
     }
     
     static handleTwitchMessage(message) {
-        //  If you've added a twitch callback, it'll override the bottom code and instead go to your callback
+        //  If we've added a custom reward ID callback, it'll override the bottom code and instead go to the callback
+        if (message.tags.hasOwnProperty("customRewardId") && SETTINGS.REWARD_ITEMS_LIST.hasOwnProperty(message.tags.customRewardId)) {
+            respondToRewardMessage(message);
+        }
+
+        //  If we've added a twitch event callback, it'll override the bottom code and instead go to the callback
         if (twitchMessageCallbacks.hasOwnProperty(message.event)) { if (twitchMessageCallbacks[message.event](message)) return; }
 
         switch (message.event) {
