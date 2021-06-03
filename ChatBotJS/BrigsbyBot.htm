@@ -2226,7 +2226,12 @@ class TwitchController {
     }
     
     static handleTwitchMessage(message) {
-        //  If you've added a twitch callback, it'll override the bottom code and instead go to your callback
+        //  If we've added a custom reward ID callback, it'll override the bottom code and instead go to the callback
+        if (message.tags.hasOwnProperty("customRewardId") && SETTINGS.REWARD_ITEMS_LIST.hasOwnProperty(message.tags.customRewardId)) {
+            respondToRewardMessage(message);
+        }
+
+        //  If we've added a twitch event callback, it'll override the bottom code and instead go to the callback
         if (twitchMessageCallbacks.hasOwnProperty(message.event)) { if (twitchMessageCallbacks[message.event](message)) return; }
 
         switch (message.event) {
@@ -3129,6 +3134,11 @@ let parseBrigsbyCommand = async (username, message) => {
             if (giveResult === null) { return { success: true, reply: [ "ERROR: Failed to give points to @" + giveUser ], }; }
             return { success: true, reply: [ "Current balance for @" + giveUser + ": " + giveResult.toString(), ], };
     }
+}
+
+let respondToRewardMessage = async (message) => {
+    let reward = SETTINGS.REWARD_ITEMS_LIST[message.tags.customRewardId];
+    KEY_TRIGGER_MANAGER.AddTriggerToQueue(reward.name);
 }
 
 class KeyTriggerManager {
