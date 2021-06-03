@@ -28,25 +28,42 @@ BrigsbyBot is a chat bot Twitch that allows a streamer to create functionality t
 		"startmenu": { name: "StartMenu", type: "Keyboard", price: 50 },
 		"refresh": { name: "Refresh", type: "Keyboard", price: 50 },
     },
+	REWARD_ITEMS_LIST: {
+		"85fa2f51-9a7f-4273-8779-53ceb2b57f3f": { name: "Enter" },
+	},
     KEY_TRIGGER_EVENTS: {
-		"TaskManager": {
-			keys: [ "LEFT CONTROL", "LEFT SHIFT", "ESCAPE" ],
-			delay: 0,
-			message: "Opening the task manager"
-		},
-		"StartMenu": {
-			keys: [ "LEFT WINDOWS" ],
-			delay: 0,
-			message: "Opening the start menu"
-		},
-		"Refresh": {
-			keys: [ "F5" ],
-			delay: 0,
-			message: "Refreshing"
-		}
+		"TaskManager": [
+			{
+				keys: [ "LEFT CONTROL", "LEFT SHIFT", "ESCAPE" ],
+				delay: 0,
+				message: "Opening the task manager"
+			},
+		],
+		"StartMenu": [
+			{
+				keys: [ "LEFT WINDOWS" ],
+				delay: 0,
+				message: "Opening the start menu"
+			},
+		],
+		"Refresh": [
+			{
+				keys: [ "F5" ],
+				delay: 0,
+				message: "Refreshing"
+			}
+		],
+		"Enter": [
+			{
+				keys: [ "Return" ],
+				delay: 0,
+				message: "Hitting Enter"
+			}
+		],
     }
 ```
 - Note that the name of the entry in *BOT_ITEMS_LIST* should be in all lower-case, but the **name** value can use any capitalization you'd like. Once you've given it a **name**, that same string (with all capitalization) should be used as the name of the entry in *KEY_TRIGGER_EVENTS*. The **keys** value is an array that contains strings that identify keys (the list of which you can find below in this README) and must be comma deliniated if you wish to combine multiple keys. See the **TaskManager** entry for an example of this. The **message** value can be anything, as it will just show in the console of the **ControlBox**.
+- Note that the name of the entry in *REWARD_ITEMS_LIST* should be the custom reward ID of the channel point reward you want to use to set off a key trigger event. You can discover the customRewardId of a channel point reward by using [this tool](https://www.instafluff.tv/TwitchCustomRewardID/?channel=YOURTWITCHCHANNEL) and changing out the URL to have your channel name. The *name* entry is the *KEY_TRIGGER_EVENTS* entry name you want to fire off with that channel point reward.
 - Once ControlBox.exe is running and OBS is running with the ChatBotJS index file as a browser source, test out some of the following commands in chat:
 
 | Command |  |
